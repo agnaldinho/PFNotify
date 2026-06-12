@@ -1,0 +1,51 @@
+{
+  "Nome": "kewlkfslm,fs",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ABASTECIMENTO_AUTOMACAO_EMPRES, t0.DAT_HORA AS ABASTECIMENTO_AUTOMACAO_DAT_HO, t0.BICO_ID AS ABASTECIMENTO_AUTOMACAO_BICO_I, t0.COMBUSTIVEL_ID AS ABASTECIMENTO_AUTOMACAO_COMBUS, t0.DAT_MOVIMENTO AS ABASTECIMENTO_AUTOMACAO_DAT_MO FROM ABASTECIMENTO_AUTOMACAO t0 WHERE t0.DAT_HORA BETWEEN @dataInicial AND @dataFinal AND t0.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_HORA",
+      "Titulo": "DAT_HORA",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "BICO_ID",
+      "Titulo": "BICO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "COMBUSTIVEL_ID",
+      "Titulo": "COMBUSTIVEL_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_MOVIMENTO",
+      "Titulo": "DAT_MOVIMENTO",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

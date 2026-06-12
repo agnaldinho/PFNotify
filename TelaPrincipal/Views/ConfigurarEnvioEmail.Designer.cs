@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.Diariamente = new System.Windows.Forms.RadioButton();
             this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Semanalmente = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.Quinzenalmente = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.Mensalmente = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -65,16 +65,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // radioButton1
+            // Diariamente
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(1, 40);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(81, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Diariamente";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.Diariamente.AutoSize = true;
+            this.Diariamente.Location = new System.Drawing.Point(1, 40);
+            this.Diariamente.Name = "Diariamente";
+            this.Diariamente.Size = new System.Drawing.Size(81, 17);
+            this.Diariamente.TabIndex = 0;
+            this.Diariamente.TabStop = true;
+            this.Diariamente.Text = "Diariamente";
+            this.Diariamente.UseVisualStyleBackColor = true;
             // 
             // iconPictureBox4
             // 
@@ -112,16 +112,16 @@
             this.label8.TabIndex = 30;
             this.label8.Text = "Configure seu email automatico aqui";
             // 
-            // radioButton2
+            // Semanalmente
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(85, 40);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
-            this.radioButton2.TabIndex = 33;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Semanalmente";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.Semanalmente.AutoSize = true;
+            this.Semanalmente.Location = new System.Drawing.Point(85, 40);
+            this.Semanalmente.Name = "Semanalmente";
+            this.Semanalmente.Size = new System.Drawing.Size(95, 17);
+            this.Semanalmente.TabIndex = 33;
+            this.Semanalmente.TabStop = true;
+            this.Semanalmente.Text = "Semanalmente";
+            this.Semanalmente.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -138,22 +138,22 @@
             this.Quinzenalmente.AutoSize = true;
             this.Quinzenalmente.Location = new System.Drawing.Point(186, 40);
             this.Quinzenalmente.Name = "Quinzenalmente";
-            this.Quinzenalmente.Size = new System.Drawing.Size(95, 17);
+            this.Quinzenalmente.Size = new System.Drawing.Size(101, 17);
             this.Quinzenalmente.TabIndex = 35;
             this.Quinzenalmente.TabStop = true;
-            this.Quinzenalmente.Text = "Semanalmente";
+            this.Quinzenalmente.Text = "Quinzenalmente";
             this.Quinzenalmente.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // Mensalmente
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(287, 40);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(88, 17);
-            this.radioButton3.TabIndex = 36;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Mensalmente";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.Mensalmente.AutoSize = true;
+            this.Mensalmente.Location = new System.Drawing.Point(287, 40);
+            this.Mensalmente.Name = "Mensalmente";
+            this.Mensalmente.Size = new System.Drawing.Size(88, 17);
+            this.Mensalmente.TabIndex = 36;
+            this.Mensalmente.TabStop = true;
+            this.Mensalmente.Text = "Mensalmente";
+            this.Mensalmente.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -164,11 +164,11 @@
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Controls.Add(this.radioButton3);
+            this.panel3.Controls.Add(this.Mensalmente);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.Quinzenalmente);
-            this.panel3.Controls.Add(this.radioButton1);
-            this.panel3.Controls.Add(this.radioButton2);
+            this.panel3.Controls.Add(this.Diariamente);
+            this.panel3.Controls.Add(this.Semanalmente);
             this.panel3.Location = new System.Drawing.Point(11, 162);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(374, 254);
@@ -431,14 +431,14 @@
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton Diariamente;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton Semanalmente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton Quinzenalmente;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton Mensalmente;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridView1;

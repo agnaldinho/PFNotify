@@ -1,0 +1,46 @@
+{
+  "Nome": "teste22222",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ABASTECIMENTO_AUTOMACAO_EMPRES, t0.BICO_ID AS ABASTECIMENTO_AUTOMACAO_BICO_I, t0.DAT_MOVIMENTO AS ABASTECIMENTO_AUTOMACAO_DAT_MO, t1.ABREVIACAO AS COMBUSTIVEL_ABREVIACAO FROM ABASTECIMENTO_AUTOMACAO t0 LEFT JOIN COMBUSTIVEL t1 ON t1.COMBUSTIVEL_ID = t0.COMBUSTIVEL_ID WHERE t0.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal AND t0.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "BICO_ID",
+      "Titulo": "BICO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_MOVIMENTO",
+      "Titulo": "DAT_MOVIMENTO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "ABREVIACAO",
+      "Titulo": "ABREVIACAO",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

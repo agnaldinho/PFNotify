@@ -105,3 +105,4 @@ D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\bin\Debug\System.Text.Encodings
 D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\bin\Debug\System.Text.Json.xml
 D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.Views.ConfigurarEnvioEmail.resources
 D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.ProjectInstaller.resources
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.Views.GerenciarRelatorios.resources

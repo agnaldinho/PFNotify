@@ -285,6 +285,9 @@
     <EmbeddedResource Include="Views\EnviarEmailForm.resx">
       <DependentUpon>EnviarEmailForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\GerenciarRelatorios.resx">
+      <DependentUpon>GerenciarRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\RelatoriosPersonalizados.resx">
       <DependentUpon>RelatoriosPersonalizados.cs</DependentUpon>
     </EmbeddedResource>

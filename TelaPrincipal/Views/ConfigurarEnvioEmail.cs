@@ -47,36 +47,73 @@ namespace TelaPrincipal.Views
             public string EmpresaNome { get; set; }
             public DateTime UltimoEnvio { get; set; }
         }
+        private ConfigEnvioAutomatico _configEdicao = null;
 
-        // =====================================================================
+
         public ConfigurarEnvioEmail()
         {
             InitializeComponent();
-
             CriarPainelAgendamento();
             CarregarRelatorios();
             CarregarEmpresas();
             RegistrarEventosFrequencia();
-            AtualizarPainelAgendamento();   // exibe painel inicial
-            CarregarConfigSalva();
-            IniciarTimer();
+            AtualizarPainelAgendamento();
         }
 
-        // ─────────────────────────────────────────────────────────────────────
-        // PAINEL DINÂMICO — adicionada ancoragem nativa para responsividade
-        // ─────────────────────────────────────────────────────────────────────
+        public ConfigurarEnvioEmail(ConfigEnvioAutomatico configParaEditar) : this()
+        {
+            _configEdicao = configParaEditar;
+
+            this.Load += (s, e) => PreencherCamposParaEdicao(_configEdicao);
+        }
+        private void PreencherCamposParaEdicao(ConfigEnvioAutomatico cfg)
+        {
+            if (cfg == null) return;
+
+            txtNomeRelatorio.Text = cfg.RelatorioNome;
+            txtArquivo.Text = cfg.NomeArquivoCustomizado;
+            cbExcel.Checked = cfg.EnviarExcel;
+            cbPDF.Checked = cfg.EnviarPDF;
+            txtEmail.Text = cfg.Destinatario;
+
+            // Alimenta a Frequência
+            switch (cfg.Frequencia)
+            {
+                case "Diariamente": Diariamente.Checked = true; break;
+                case "Semanalmente": Semanalmente.Checked = true; break;
+                case "Quinzenalmente": Quinzenalmente.Checked = true; break;
+                case "Mensalmente": Mensalmente.Checked = true; break;
+            }
+
+            if (TimeSpan.TryParse(cfg.Horario, out TimeSpan ts))
+                _dtpHorario.Value = DateTime.Today.Add(ts);
+
+            if (!string.IsNullOrEmpty(cfg.DiaSemana) && _cbDiaSemana.Items.Contains(cfg.DiaSemana))
+                _cbDiaSemana.SelectedItem = cfg.DiaSemana;
+
+            if (cfg.DiaMes >= 0 && cfg.DiaMes < _cbDiaMes.Items.Count)
+                _cbDiaMes.SelectedIndex = cfg.DiaMes;
+
+            // Seleciona a Empresa correta no Grid
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells["empresa_id"].Value?.ToString() == cfg.EmpresaId.ToString())
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
+        }
+
         private void CriarPainelAgendamento()
         {
-            // Painel container
             _painelAgendamento = new Panel
             {
-                BackColor = Color.White,
-                Size = new Size(360, 80),
-                Location = new Point(panel3.Left, panel3.Bottom + 8),
-                // Lógica de ancoragem aplicada ao objeto criado em tempo de execução:
-                Anchor = AnchorStyles.Bottom | AnchorStyles.Left
+                BackColor = System.Drawing.Color.Transparent,
+                Size = new System.Drawing.Size(440, 80),
+                // Ajuste a posição X e Y para ficar abaixo de "Frequência de Envio" dentro do panel3
+                Location = new System.Drawing.Point(5, 65),
             };
-            this.Controls.Add(_painelAgendamento);
             _painelAgendamento.BringToFront();
 
             // ── Horário (todas as frequências) ──────────────────────────────
@@ -151,20 +188,23 @@ namespace TelaPrincipal.Views
                 _lblDiaSemana, _cbDiaSemana,
                 _lblDiaMes, _cbDiaMes
             });
+
+            panel3.Controls.Add(_painelAgendamento);
+            _painelAgendamento.BringToFront();
         }
 
         private void RegistrarEventosFrequencia()
         {
-            radioButton1.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Diariamente
-            radioButton2.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Semanalmente
+            Diariamente.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Diariamente
+            Semanalmente.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Semanalmente
             Quinzenalmente.CheckedChanged += (s, e) => AtualizarPainelAgendamento(); // Quinzenalmente
-            radioButton3.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Mensalmente
+            Mensalmente.CheckedChanged += (s, e) => AtualizarPainelAgendamento();  // Mensalmente
         }
 
         private void AtualizarPainelAgendamento()
         {
-            bool semanal = radioButton2.Checked;
-            bool mensal = radioButton3.Checked;
+            bool semanal = Semanalmente.Checked;
+            bool mensal = Mensalmente.Checked;
 
             _lblDiaSemana.Visible = semanal;
             _cbDiaSemana.Visible = semanal;
@@ -313,10 +353,10 @@ namespace TelaPrincipal.Views
 
             switch (cfg.Frequencia)
             {
-                case "Diariamente": radioButton1.Checked = true; break;
-                case "Semanalmente": radioButton2.Checked = true; break;
+                case "Diariamente": Diariamente.Checked = true; break;
+                case "Semanalmente": Semanalmente.Checked = true; break;
                 case "Quinzenalmente": Quinzenalmente.Checked = true; break;
-                default: radioButton3.Checked = true; break;
+                default: Mensalmente.Checked = true; break;
             }
 
             if (TimeSpan.TryParse(cfg.Horario, out TimeSpan ts))
@@ -369,8 +409,8 @@ namespace TelaPrincipal.Views
             }
 
             string frequencia = "Mensalmente";
-            if (radioButton1.Checked) frequencia = "Diariamente";
-            else if (radioButton2.Checked) frequencia = "Semanalmente";
+            if (Diariamente.Checked) frequencia = "Diariamente";
+            else if (Semanalmente.Checked) frequencia = "Semanalmente";
             else if (Quinzenalmente.Checked) frequencia = "Quinzenalmente";
 
             int empresaId = 0;
@@ -404,8 +444,8 @@ namespace TelaPrincipal.Views
 
         private string FrequenciaAtual()
         {
-            if (radioButton1.Checked) return "Diariamente";
-            if (radioButton2.Checked) return "Semanalmente";
+            if (Diariamente.Checked) return "Diariamente";
+            if (Semanalmente.Checked) return "Semanalmente";
             if (Quinzenalmente.Checked) return "Quinzenalmente";
             return "Mensalmente";
         }
@@ -688,8 +728,8 @@ namespace TelaPrincipal.Views
                 $"Relatório  : {txtNomeRelatorio.Text}\n" + // Alterado aqui
                 $"Frequência : {FrequenciaAtual()}\n" +
                 $"Horário    : {_dtpHorario.Value:HH:mm}\n" +
-                (radioButton2.Checked ? $"Dia        : {_cbDiaSemana.SelectedItem}\n" : "") +
-                (radioButton3.Checked ? $"Semana     : {_cbDiaMes.SelectedItem}\n" : ""),
+                (Semanalmente.Checked ? $"Dia        : {_cbDiaSemana.SelectedItem}\n" : "") +
+                (Mensalmente.Checked ? $"Semana     : {_cbDiaMes.SelectedItem}\n" : ""),
                 "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             txtEmail.Text = string.Empty;

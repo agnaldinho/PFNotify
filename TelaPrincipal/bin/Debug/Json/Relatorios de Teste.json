@@ -1,0 +1,51 @@
+{
+  "Nome": "Relatorios de Teste",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ABASTECIMENTO_AUTOMACAO_EMPRES, t0.DAT_HORA AS ABASTECIMENTO_AUTOMACAO_DAT_HO, t0.BICO_ID AS ABASTECIMENTO_AUTOMACAO_BICO_I, t0.ENCERRANTE AS ABASTECIMENTO_AUTOMACAO_ENCERR, t0.PRC_UNITARIO AS ABASTECIMENTO_AUTOMACAO_PRC_UN, t0.VAL_TOTAL AS ABASTECIMENTO_AUTOMACAO_VAL_TO, t1.DESCRICAO AS COMBUSTIVEL_DESCRICAO FROM ABASTECIMENTO_AUTOMACAO t0 LEFT JOIN COMBUSTIVEL t1 ON t1.COMBUSTIVEL_ID = t0.COMBUSTIVEL_ID WHERE t0.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_HORA",
+      "Titulo": "DAT_HORA",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "BICO_ID",
+      "Titulo": "BICO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "ENCERRANTE",
+      "Titulo": "ENCERRANTE",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "PRC_UNITARIO",
+      "Titulo": "PRC_UNITARIO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "VAL_TOTAL",
+      "Titulo": "VAL_TOTAL",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DESCRICAO",
+      "Titulo": "DESCRICAO",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}
