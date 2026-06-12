@@ -1,0 +1,76 @@
+{
+  "Nome": "Teste2",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.DAT_MOVIMENTO AS ECF_CONSUMIDOR_DAT_MOVIMENTO, t0.TURNO_ID AS ECF_CONSUMIDOR_TURNO_ID, t0.DAT_EMISSAO AS ECF_CONSUMIDOR_DAT_EMISSAO, t0.NUM_NF AS ECF_CONSUMIDOR_NUM_NF, t0.PESSOA_ID AS ECF_CONSUMIDOR_PESSOA_ID, t0.SERIE AS ECF_CONSUMIDOR_SERIE, t0.DESCRICAO_INTERMEDIADOR AS ECF_CONSUMIDOR_DESCRICAO_INTER, t0.VAL_IBS_MONO AS ECF_CONSUMIDOR_VAL_IBS_MONO, t1.NUM_CNPJ AS EMPRESA_NUM_CNPJ, t1.CIDADE_ID AS EMPRESA_CIDADE_ID FROM ECF_CONSUMIDOR t0 LEFT JOIN EMPRESA t1 ON t1.EMPRESA_ID = t0.EMPRESA_ID WHERE t0.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal AND t0.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "DAT_MOVIMENTO",
+      "Titulo": "DAT_MOVIMENTO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "TURNO_ID",
+      "Titulo": "TURNO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_EMISSAO",
+      "Titulo": "DAT_EMISSAO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NUM_NF",
+      "Titulo": "NUM_NF",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "PESSOA_ID",
+      "Titulo": "PESSOA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "SERIE",
+      "Titulo": "SERIE",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DESCRICAO_INTERMEDIADOR",
+      "Titulo": "DESCRICAO_INTERMEDIADOR",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "VAL_IBS_MONO",
+      "Titulo": "VAL_IBS_MONO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NUM_CNPJ",
+      "Titulo": "NUM_CNPJ",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "CIDADE_ID",
+      "Titulo": "CIDADE_ID",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

@@ -1,0 +1,46 @@
+{
+  "Nome": "Relatorio_cupom",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ECF_CONSUMIDOR_EMPRESA_ID, t0.DAT_MOVIMENTO AS ECF_CONSUMIDOR_DAT_MOVIMENTO, t0.TURNO_ID AS ECF_CONSUMIDOR_TURNO_ID, t0.NUM_NF AS ECF_CONSUMIDOR_NUM_NF FROM ECF_CONSUMIDOR t0 WHERE t0.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_MOVIMENTO",
+      "Titulo": "DAT_MOVIMENTO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "TURNO_ID",
+      "Titulo": "TURNO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NUM_NF",
+      "Titulo": "NUM_NF",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

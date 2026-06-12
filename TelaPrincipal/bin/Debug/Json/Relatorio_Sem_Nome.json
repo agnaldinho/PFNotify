@@ -1,0 +1,31 @@
+{
+  "Nome": "",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ABASTECIMENTO_AUTOMACAO_EMPRES, t0.ABASTECIMENTO_AUTOMACAO_ID AS ABASTECIMENTO_AUTOMACAO_ABASTE, t0.DAT_HORA AS ABASTECIMENTO_AUTOMACAO_DAT_HO FROM ABASTECIMENTO_AUTOMACAO t0",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "ABASTECIMENTO_AUTOMACAO_ID",
+      "Titulo": "ABASTECIMENTO_AUTOMACAO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_HORA",
+      "Titulo": "DAT_HORA",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

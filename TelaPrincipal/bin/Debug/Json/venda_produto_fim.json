@@ -1,0 +1,23 @@
+{
+  "Nome": "Vendas de Produtos por Fim de Semana",
+  "Descricao": "Itens vendidos aos sábados e domingos nos últimos 7 dias, com valor e preço unitário",
+
+  "Query": "SELECT EC.DAT_EMISSAO as DATA_EMISSAO, IEC.PRODUTO_ID, PR.DESCRICAO as PRODUTO, IEC.PRC_UNITARIO as PRECO_UNITARIO, IEC.VAL_ITEM as VAL_TOTAL FROM ITEM_ECF_CONSUMIDOR IEC INNER JOIN ECF_CONSUMIDOR EC on (EC.EMPRESA_ID = IEC.EMPRESA_ID and EC.ECF_CONSUMIDOR_ID = IEC.ECF_CONSUMIDOR_ID) INNER JOIN PRODUTO PR on (PR.PRODUTO_ID = IEC.PRODUTO_ID) WHERE EC.EMPRESA_ID = @empresa_id AND EC.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal AND extract(weekday from EC.DAT_MOVIMENTO) in (6, 0) AND IEC.PRODUTO_ID is not null AND IEC.COMBUSTIVEL_ID is null GROUP BY EC.DAT_EMISSAO, IEC.PRODUTO_ID, PR.DESCRICAO, IEC.PRC_UNITARIO, IEC.VAL_ITEM",
+
+  "Parametros": [
+    { "Nome": "empresa_id", "Tipo": "Int", "Label": "Empresa" },
+    { "Nome": "dataInicial", "Tipo": "DateTime", "Label": "Data Inicial" },
+    { "Nome": "dataFinal", "Tipo": "DateTime", "Label": "Data Final" }
+  ],
+
+  "Campos": [
+    { "Nome": "DATA_EMISSAO", "Titulo": "Data Emissão", "Tipo": "DateTime" },
+    { "Nome": "PRODUTO_ID", "Titulo": "ID Produto", "Tipo": "Int" },
+    { "Nome": "PRODUTO", "Titulo": "Produto", "Tipo": "String" },
+    { "Nome": "PRECO_UNITARIO", "Titulo": "Preço Unitário", "Tipo": "Decimal" },
+    { "Nome": "VAL_TOTAL", "Titulo": "Valor Total", "Tipo": "Decimal" }
+  ],
+
+  "PermiteExcel": true,
+  "Agrupado": true
+}

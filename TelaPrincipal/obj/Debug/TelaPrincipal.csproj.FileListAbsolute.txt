@@ -1,0 +1,10 @@
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\bin\Debug\TelaPrincipal.exe.config
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\bin\Debug\TelaPrincipal.exe
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\bin\Debug\TelaPrincipal.pdb
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.csproj.AssemblyReference.cache
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.Properties.Resources.resources
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.csproj.GenerateResource.cache
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.csproj.CoreCompileInputs.cache
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.exe
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.pdb
+D:\Projeto_relatorio\TelaPrincipal\TelaPrincipal\obj\Debug\TelaPrincipal.AbrirTela.resources

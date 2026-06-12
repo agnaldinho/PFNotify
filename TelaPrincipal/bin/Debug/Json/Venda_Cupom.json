@@ -1,0 +1,27 @@
+{
+  "Nome": "Vendas de Combustível sem CPF/CNPJ",
+  "Descricao": "Lista de vendas de combustível sem CPF/CNPJ, sem cartão vinculado, agrupado por consumidor e combustível.",
+
+  "Query": "SELECT EC.DAT_EMISSAO as DAT_EMISSAO, EC.NUM_NF as NUM_NF, EC.CHAVE_ACESSO as CHAVE_ACESSO, IEC.COMBUSTIVEL_ID as COMBUSTIVEL_ID, CC.DESCRICAO as DESCRICAO, IEC.PRC_UNITARIO as PRC_UNITARIO, IEC.QTDE as QTDE, IEC.VAL_BRUTO as VAL_BRUTO, EC.ECF_CONSUMIDOR_ID as ECF_CONSUMIDOR_ID FROM ECF_CONSUMIDOR EC INNER JOIN ITEM_ECF_CONSUMIDOR IEC ON (IEC.EMPRESA_ID = EC.EMPRESA_ID AND IEC.ECF_CONSUMIDOR_ID = EC.ECF_CONSUMIDOR_ID) INNER JOIN COMBUSTIVEL CC ON (CC.COMBUSTIVEL_ID = IEC.COMBUSTIVEL_ID) LEFT JOIN MOVIMENTO_CARTAO MC ON (MC.EMPRESA_ID = EC.EMPRESA_ID AND MC.ECF_CONSUMIDOR_ID = EC.ECF_CONSUMIDOR_ID) WHERE EC.EMPRESA_ID = @empresa_id AND IEC.COMBUSTIVEL_ID IS NOT NULL AND EC.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal AND MC.ECF_CONSUMIDOR_ID IS NULL AND EC.NUM_CPF_CNPJ IS NULL AND EC.PESSOA_ID IS NULL AND EC.EMPRESA_PESSOA_ID IS NULL",
+
+  "Parametros": [
+    { "Nome": "empresa_id", "Tipo": "Int", "Label": "Empresa" },
+    { "Nome": "dataInicial", "Tipo": "DateTime", "Label": "Data Inicial" },
+    { "Nome": "dataFinal", "Tipo": "DateTime", "Label": "Data Final" }
+  ],
+
+  "Campos": [
+    { "Nome": "DAT_EMISSAO", "Titulo": "Data Emissão", "Tipo": "DateTime" },
+    { "Nome": "NUM_NF", "Titulo": "Número NF", "Tipo": "Int" },
+    { "Nome": "CHAVE_ACESSO", "Titulo": "Chave Acesso", "Tipo": "String" },
+    { "Nome": "COMBUSTIVEL_ID", "Titulo": "Código Combustível", "Tipo": "Int" },
+    { "Nome": "DESCRICAO", "Titulo": "Combustível", "Tipo": "String" },
+    { "Nome": "PRC_UNITARIO", "Titulo": "Preço Unitário", "Tipo": "Decimal" },
+    { "Nome": "QTDE", "Titulo": "Quantidade", "Tipo": "Decimal" },
+    { "Nome": "VAL_BRUTO", "Titulo": "Valor Bruto", "Tipo": "Decimal" },
+    { "Nome": "ECF_CONSUMIDOR_ID", "Titulo": "ID Consumidor", "Tipo": "Int" }
+  ],
+
+  "PermiteExcel": true,
+  "Agrupado": false
+}

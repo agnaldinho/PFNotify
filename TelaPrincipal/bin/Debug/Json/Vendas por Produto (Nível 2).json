@@ -1,0 +1,22 @@
+{
+  "Nome": "Vendas por Produto (Nível 2)",
+  "Descricao": "Quantidade e valor vendido por produto nível 2 no período selecionado",
+
+  "Query": "SELECT EC.DAT_MOVIMENTO as DATA_DE_MOVIMENTO, PN2.DESCRICAO as PRODUTO_NIVEL2, sum(IEC.QTDE) as TOTAL_QTD_VENDIDO, sum(IEC.VAL_ITEM) as TOTAL_VAL_VENDIDO FROM ITEM_ECF_CONSUMIDOR IEC INNER JOIN PRODUTO PR on (PR.PRODUTO_ID = IEC.PRODUTO_ID) INNER JOIN PRODUTO_NIVEL2 PN2 on (PN2.PRODUTO_NIVEL2_ID = PR.PRODUTO_NIVEL2_ID) INNER JOIN ECF_CONSUMIDOR EC on (EC.EMPRESA_ID = IEC.EMPRESA_ID and EC.ECF_CONSUMIDOR_ID = IEC.ECF_CONSUMIDOR_ID) WHERE EC.EMPRESA_ID = @empresa_id AND EC.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal GROUP BY PN2.DESCRICAO, EC.DAT_MOVIMENTO",
+
+  "Parametros": [
+    { "Nome": "empresa_id", "Tipo": "Int", "Label": "Empresa" },
+    { "Nome": "dataInicial", "Tipo": "DateTime", "Label": "Data Inicial" },
+    { "Nome": "dataFinal", "Tipo": "DateTime", "Label": "Data Final" }
+  ],
+
+  "Campos": [
+    { "Nome": "DATA_DE_MOVIMENTO", "Titulo": "Data", "Tipo": "DateTime" },
+    { "Nome": "PRODUTO_NIVEL2", "Titulo": "Produto", "Tipo": "String" },
+    { "Nome": "TOTAL_QTD_VENDIDO", "Titulo": "Quantidade Vendida", "Tipo": "Decimal" },
+    { "Nome": "TOTAL_VAL_VENDIDO", "Titulo": "Valor Vendido", "Tipo": "Decimal" }
+  ],
+
+  "PermiteExcel": true,
+  "Agrupado": true
+}

@@ -1,0 +1,76 @@
+{
+  "Nome": "Relatorio de nota",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.DESCRICAO AS CFOP_DESCRICAO, t1.CFOP AS ITEM_NF_CFOP, t1.QTDE AS ITEM_NF_QTDE, t1.VAL_ITEM AS ITEM_NF_VAL_ITEM, t2.NUM_NF AS NF_MODELO1_NUM_NF, t2.DAT_EMISSAO AS NF_MODELO1_DAT_EMISSAO, t2.CODIGO AS NF_MODELO1_CODIGO, t2.NOME AS NF_MODELO1_NOME, t2.NUM_CPF_CNPJ AS NF_MODELO1_NUM_CPF_CNPJ, t2.VAL_TOTAL AS NF_MODELO1_VAL_TOTAL FROM CFOP t0 LEFT JOIN NATUREZA_OPERACAO t3 ON t3.NATUREZA_OPERACAO_ID = t0.NATUREZA_OPERACAO_ID LEFT JOIN NF_MODELO1 t2 ON t2.NATUREZA_OPERACAO_ID = t3.NATUREZA_OPERACAO_ID LEFT JOIN ITEM_NF t1 ON t1.EMPRESA_ID = t2.EMPRESA_ID WHERE t2.DAT_EMISSAO BETWEEN @dataInicial AND @dataFinal AND t1.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "DESCRICAO",
+      "Titulo": "DESCRICAO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "CFOP",
+      "Titulo": "CFOP",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "QTDE",
+      "Titulo": "QTDE",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "VAL_ITEM",
+      "Titulo": "VAL_ITEM",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NUM_NF",
+      "Titulo": "NUM_NF",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_EMISSAO",
+      "Titulo": "DAT_EMISSAO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "CODIGO",
+      "Titulo": "CODIGO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NOME",
+      "Titulo": "NOME",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NUM_CPF_CNPJ",
+      "Titulo": "NUM_CPF_CNPJ",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "VAL_TOTAL",
+      "Titulo": "VAL_TOTAL",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

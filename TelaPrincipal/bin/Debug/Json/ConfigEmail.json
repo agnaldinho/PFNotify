@@ -1,0 +1,9 @@
+{
+  "Smtp": "smtp.gmail.com",
+  "Porta": 587,
+  "Usuario": "agnaldopereira97@gmail.com",
+  "Senha": "luff ctqp wyom hsxj",
+  "Remetente": "agnaldopereira97@gmail.com",
+  "DestinatarioPadrao": "",
+  "UsaSSL": true
+}

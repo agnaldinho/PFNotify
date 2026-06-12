@@ -1,0 +1,41 @@
+{
+  "Nome": "RelatorioBanco",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.BANCO_ID AS BANCO_BANCO_ID, t0.NOM_BANCO AS BANCO_NOM_BANCO, t0.CODIGO_FEBRABAN AS BANCO_CODIGO_FEBRABAN, t0.DIGITO AS BANCO_DIGITO, t0.LOCAL_PAGAMENTO AS BANCO_LOCAL_PAGAMENTO FROM BANCO t0",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "BANCO_ID",
+      "Titulo": "BANCO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NOM_BANCO",
+      "Titulo": "NOM_BANCO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "CODIGO_FEBRABAN",
+      "Titulo": "CODIGO_FEBRABAN",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DIGITO",
+      "Titulo": "DIGITO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "LOCAL_PAGAMENTO",
+      "Titulo": "LOCAL_PAGAMENTO",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

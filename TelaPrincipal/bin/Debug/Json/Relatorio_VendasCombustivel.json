@@ -1,0 +1,26 @@
+{
+  "Nome": "Total de Vendas de Combustível por Funcionário",
+  "Descricao": "Quantidade e valor de combustível vendido por funcionário, agrupado por produto",
+
+  "Query": "SELECT AA.DAT_MOVIMENTO as DATA_DE_MOVIMENTO, PP.CODIGO as COD_FUNCIONARIO, PP.NOME as FUNCIONARIO, AA.COMBUSTIVEL_ID as COD_COMBUSTIVEL, CC.DESCRICAO as NOME_COMBUSTIVEL, count(*) as QTDE_ABS, sum(AA.QTDE) as QTDE_LTS, sum(AA.VAL_TOTAL) as VALOR_TOTAL FROM ABASTECIMENTO_AUTOMACAO AA LEFT JOIN PESSOA PP ON (PP.PESSOA_ID = AA.FUNCIONARIO_ID) LEFT JOIN COMBUSTIVEL CC ON (CC.COMBUSTIVEL_ID = AA.COMBUSTIVEL_ID) WHERE AA.EMPRESA_ID = @empresa_id AND AA.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal GROUP BY PP.CODIGO, AA.COMBUSTIVEL_ID, AA.DAT_MOVIMENTO, PP.NOME, CC.DESCRICAO ORDER BY PP.CODIGO, AA.COMBUSTIVEL_ID",
+
+  "Parametros": [
+    { "Nome": "empresa_id", "Tipo": "Int", "Label": "Empresa" },
+    { "Nome": "dataInicial", "Tipo": "DateTime", "Label": "Data Inicial" },
+    { "Nome": "dataFinal", "Tipo": "DateTime", "Label": "Data Final" }
+  ],
+
+  "Campos": [
+    { "Nome": "DATA_DE_MOVIMENTO", "Titulo": "Data", "Tipo": "DateTime" },
+    { "Nome": "COD_FUNCIONARIO", "Titulo": "Código Funcionário", "Tipo": "Int" },
+    { "Nome": "FUNCIONARIO", "Titulo": "Funcionário", "Tipo": "String" },
+    { "Nome": "COD_COMBUSTIVEL", "Titulo": "Código Combustível", "Tipo": "Int" },
+    { "Nome": "NOME_COMBUSTIVEL", "Titulo": "Combustível", "Tipo": "String" },
+    { "Nome": "QTDE_ABS", "Titulo": "Qtde Abastecimentos", "Tipo": "Int" },
+    { "Nome": "QTDE_LTS", "Titulo": "Litros", "Tipo": "Decimal" },
+    { "Nome": "VALOR_TOTAL", "Titulo": "Valor Total", "Tipo": "Decimal" }
+  ],
+
+  "PermiteExcel": true,
+  "Agrupado": true
+}

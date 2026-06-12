@@ -1,0 +1,56 @@
+{
+  "Nome": "RelatorioTOP",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS ABASTECIMENTO_AUTOMACAO_EMPRES, t0.DAT_MOVIMENTO AS ABASTECIMENTO_AUTOMACAO_DAT_MO, t0.DAT_HORA_MOVIMENTO AS ABASTECIMENTO_AUTOMACAO_DAT_HO, t0.ENCERRANTE AS ABASTECIMENTO_AUTOMACAO_ENCERR, t0.QTDE AS ABASTECIMENTO_AUTOMACAO_QTDE, t1.DAT_MOVIMENTO_EXCL AS BICO_DAT_MOVIMENTO_EXCL FROM ABASTECIMENTO_AUTOMACAO t0 LEFT JOIN BICO t1 ON t1.EMPRESA_ID = t0.EMPRESA_ID WHERE t0.DAT_MOVIMENTO BETWEEN @dataInicial AND @dataFinal AND t0.EMPRESA_ID = @empresa_id",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    },
+    {
+      "Nome": "dataInicial",
+      "Tipo": "DateTime",
+      "Label": "Data Inicial"
+    },
+    {
+      "Nome": "dataFinal",
+      "Tipo": "DateTime",
+      "Label": "Data Final"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_MOVIMENTO",
+      "Titulo": "DAT_MOVIMENTO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_HORA_MOVIMENTO",
+      "Titulo": "DAT_HORA_MOVIMENTO",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "ENCERRANTE",
+      "Titulo": "ENCERRANTE",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "QTDE",
+      "Titulo": "QTDE",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "DAT_MOVIMENTO_EXCL",
+      "Titulo": "DAT_MOVIMENTO_EXCL",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}

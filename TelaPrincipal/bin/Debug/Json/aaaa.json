@@ -1,0 +1,36 @@
+{
+  "Nome": "aaaa",
+  "Descricao": "Gerado pelo sistema",
+  "Query": "SELECT t0.EMPRESA_ID AS NF_MODELO1_EMPRESA_ID, t0.NF_MODELO1_ID AS NF_MODELO1_NF_MODELO1_ID, t0.EMPRESA_RECIBO_PAGAMENTO_ID AS NF_MODELO1_EMPRESA_RECIBO_PAGA, t0.RECIBO_PAGAMENTO_ID AS NF_MODELO1_RECIBO_PAGAMENTO_ID FROM NF_MODELO1 t0",
+  "Parametros": [
+    {
+      "Nome": "empresa_id",
+      "Tipo": "Int",
+      "Label": "Empresa"
+    }
+  ],
+  "Campos": [
+    {
+      "Nome": "EMPRESA_ID",
+      "Titulo": "EMPRESA_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "NF_MODELO1_ID",
+      "Titulo": "NF_MODELO1_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "EMPRESA_RECIBO_PAGAMENTO_ID",
+      "Titulo": "EMPRESA_RECIBO_PAGAMENTO_ID",
+      "Tipo": "String"
+    },
+    {
+      "Nome": "RECIBO_PAGAMENTO_ID",
+      "Titulo": "RECIBO_PAGAMENTO_ID",
+      "Tipo": "String"
+    }
+  ],
+  "PermiteExcel": true,
+  "Agrupado": false
+}
